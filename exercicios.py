@@ -100,3 +100,104 @@ Quarto Quadrante: o valor de x é maior que zero e o valor de y é menor que zer
 Caso contrário: o ponto está localizado no eixo ou origem.
 """
 
+def exercicio8():
+    x = int(input("Insira a coordenada x: "))
+    y = int(input("Insira a coordenada y: "))
+
+    if x > 0 and y > 0:
+        print("Primeiro Quadrante")
+    elif x < 0 and y > 0:
+        print("Segundo Quadrante")
+    elif x < 0 and y < 0:
+        print("Terceiro Quadrante")
+    elif x > 0 and y < 0:
+        print("Quarto Quadrante")
+    else:
+        print("O ponto está localizado no eixo ou origem")
+
+def exercicio8v2():
+    x = int(input("Insira a coordenada x: "))
+    y = int(input("Insira a coordenada y: "))
+
+    match (x,y):
+        case (0,0):
+            print("O ponto está localizado no eixo ou origem")
+        case (x,y) if x > 0 and y > 0:
+            print("Primeiro Quadrante")
+        case (x,y) if x < 0 and y > 0:
+            print("Segundo Quadrante")
+        case (x,y) if x < 0 and y < 0:
+            print("Terceiro Quadrante")
+        case (x,y) if x > 0 and y < 0:
+            print("Quarto Quadrante")
+
+
+"""
+Crie uma lista para cada informação a seguir:
+
+Lista de números de 1 a 10;
+Lista com quatro nomes;
+Lista com o ano que você nasceu e o ano atual.
+"""
+
+def exercicio9():
+    lista1 = [1,2,3,4,5,6,7,8,9,10]
+    lista2 = ["Jaburanga","Jabucilda","Jaricleida","Jacinta"]
+    lista3 = [1998, 2024]
+
+
+
+# Crie uma lista e utilize um loop for para percorrer todos os elementos da lista
+
+def exercicio10():
+    lista = []
+    for i in range(10):
+        lista.append(i)
+
+    for i in lista:
+        print(i)
+
+# Utilize um loop for para calcular a soma dos números ímpares de 1 a 10
+def exercicio11():
+    lista = []
+    listaimpar = []
+    for i in range(10):
+        lista.append(i)
+
+    for i in lista:
+        if i % 2 != 0:
+            listaimpar.append(i)
+
+    print(listaimpar)
+
+# Utilize um loop for para imprimir os números de 1 a 10 em ordem decrescente
+def exercicio12():
+    lista = []
+    for i in range(10):
+        lista.append(i)
+    for i in lista[::-1]:
+        print(i)
+
+# Solicite ao usuário um número e, em seguida, utilize um loop for para imprimir a tabuada desse número, indo de 1 a 10.
+def exercicio13():
+    numero = int(input("Insira um numero: "))
+    for i in range(1,11):
+        print(f'{i} * {numero} =', (i * numero))
+
+# Crie uma lista de números e utilize um loop for para calcular a soma de todos os elementos. Utilize um bloco try-except para lidar com possíveis exceções
+def exercicio14():
+    lista = []
+    for i in range(10):
+        lista.append(i)
+    soma = 0
+    for i in lista:
+        try:
+            soma += i
+        except ValueError:
+            print(f'{i} não é um numero')
+
+# Construa um código que calcule a média dos valores em uma lista. Utilize um bloco try-except para lidar com a divisão por zero, caso a lista esteja vazia
+def exercicio15():
+    pass
+
+exercicio13()

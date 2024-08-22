@@ -1,5 +1,16 @@
 import os
 
+restaurantes = []
+
+def voltar_ao_menu_principal():
+    input("Digite uma tecla para voltar ao menu principal")
+    main()
+
+def exibir_sub_titulo(texto):
+    os.system('cls')
+    print(texto)
+    print()
+
 def exibir_nome_do_programa():
     print("""
 ░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
@@ -17,21 +28,44 @@ def exibir_opcoes():
     print('4. Sair\n')
 
 def finalizar_app():
-    os.system('cls')
-    print('Encerrando o programa\n')
+    exibir_sub_titulo('Encerrando o programa')
+
+def opcao_invalida():
+    print("Opcao Invalida\n")
+    voltar_ao_menu_principal()
+
+def cadastro_restaurante():
+    exibir_sub_titulo('Cadastro de novos restaurantes')
+    nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar:')
+    restaurantes.append(nome_do_restaurante)
+    print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso')
+    voltar_ao_menu_principal()
+
+def listar_restaurantes():
+    exibir_sub_titulo('Listar todos os restaurantes')
+    for restaurant in restaurantes:
+        print(f".{restaurant}")
+    voltar_ao_menu_principal()
 
 def escolher_opcoes():
-    opcao_escolhida = int(input('Escolha uma opção: '))
-    print(f'Voce escolheu: {opcao_escolhida}')
+    try:
+        opcao_escolhida = int(input('Escolha uma opção: '))
+        print(f'Voce escolheu: {opcao_escolhida}')
 
-    if opcao_escolhida == 1:
-        print('Cadastrar restaurante')
-    elif opcao_escolhida == 2:
-        print('Listar restaurantes')
-    elif opcao_escolhida == 3:
-        print('Ativar restaurantes')
-    else:
-        finalizar_app()
+        if opcao_escolhida == 1:
+            print('Cadastrar restaurante')
+            cadastro_restaurante()
+        elif opcao_escolhida == 2:
+            print('Listar restaurantes')
+            listar_restaurantes()
+        elif opcao_escolhida == 3:
+            print('Ativar restaurantes')
+        elif opcao_escolhida == 4:
+            finalizar_app()
+        else:
+            opcao_invalida()
+    except:
+        opcao_invalida()
 
 def main():
     exibir_nome_do_programa()
