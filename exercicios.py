@@ -161,14 +161,16 @@ def exercicio10():
 def exercicio11():
     lista = []
     listaimpar = []
+    soma = 0
     for i in range(10):
         lista.append(i)
 
     for i in lista:
         if i % 2 != 0:
             listaimpar.append(i)
+            soma += i
 
-    print(listaimpar)
+    print(listaimpar, soma)
 
 # Utilize um loop for para imprimir os números de 1 a 10 em ordem decrescente
 def exercicio12():
@@ -198,6 +200,27 @@ def exercicio14():
 
 # Construa um código que calcule a média dos valores em uma lista. Utilize um bloco try-except para lidar com a divisão por zero, caso a lista esteja vazia
 def exercicio15():
-    pass
+    lista = []
+    soma = 0
+    try:
+        tamanholista = int(input("Digite a quantidade de números: "))
+    except ValueError:
+        print("O valor inserido não é um número. Tente novamente.")
+        return exercicio15()
 
-exercicio13()
+    for i in range(tamanholista):
+        try:
+            numero = int(input(f"Digite o número {i + 1}: "))
+            lista.append(numero)
+        except ValueError:
+            print("Valor inválido. Por favor, insira um número.")
+            return exercicio15()
+
+    try:
+        for i in lista:
+            soma += i
+        media = soma / len(lista)
+        print(f"A média da lista {lista} é: {media}")
+    except ZeroDivisionError:
+        print("A lista está vazia, não é possível calcular a média.")
+
